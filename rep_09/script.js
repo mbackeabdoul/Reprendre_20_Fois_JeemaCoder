@@ -32,23 +32,23 @@ class JeemaCoder extends React.Component{
         render (){
             return (
                 <div className="py-4">
-                <p className="text-center">Jeemacoder gestion utilisateur</p>
-                <h1>{this.state.nomInput}</h1>
-                <div className="container">
-                  <div style={{ maxWidth: 600, margin: 'auto' }}>
-                    <div className="row">
-                      <div className="col-6 p-1">
-                        <label className="form-label">Prenom </label>
-                        <input
-                          type="text"
-                           value={this.state.prenomInput}
-                          onChange={(e) => {
-                            this.setState({ prenomInput: e.target.value });
-                          }}
-                          className="form-control"
-                        />
-                      </div>
-                          <div className="col-6 p-1">
+                    <p>JeemaCoder gestion utilisateur</p>
+                    <div className="container">
+                        <div style={{maxWidth: 600, margin: 'auto'}}>
+                            <div className="row">
+                                <div className="col-6 p-1">
+                                    <label className="form-label">Prenom</label>
+                                    <input
+                                    type="text"
+                                    value={this.state.prenomInput}
+                                    onChange={(e)=> {
+                                        this.setState({prenomInput: e.target.value})
+                                    }}
+                                          className="form-control"
+                                    />
+                                </div>
+
+                                <div className="col-6 p-1">
                         <label className="form-label">Nom</label>
                         <input
                           type="text"
@@ -59,9 +59,10 @@ class JeemaCoder extends React.Component{
                           className="form-control"
                         />
                       </div>
-                    </div>
-        
-                    <div className="row">
+            
+                            </div>
+
+                            <div className="row">
                       <div className="col-6 p-1">
                         <label className="form-label">Email</label>
                         <input
@@ -86,7 +87,7 @@ class JeemaCoder extends React.Component{
                         />
                       </div>
                     </div>
-        
+
                     <button
                       onClick={this.handleClick}
                       type="btnSubmit"
@@ -94,9 +95,9 @@ class JeemaCoder extends React.Component{
                     >
                       Submit
                     </button>
-                  </div>
-                </div>
-                    
+                        </div>
+                    </div>
+
                     <div className="mt-5 container">
                     <h3 className="text-center"> Coder</h3>
                     <table class="table">
@@ -123,11 +124,11 @@ class JeemaCoder extends React.Component{
           </tbody>    
               </table>
                   </div>
-              </div>
-            
+                    
+                </div>
             )
         }
-}
+    }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<JeemaCoder/>)
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<JeemaCoder/>)
