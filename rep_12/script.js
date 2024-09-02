@@ -1,12 +1,12 @@
-class JeemaCoder extends React.Component{
-    constructor (props) {
+class JeemaCoder extends React.Component {
+    constructor(props){
         super(props)
-        this.state={
-            prenomInput : '',
-            nomInput: '',
+        this.state ={
+            prenomInput:'',
+            nomInput:'',
             emailInput: '',
             telephoneInput:'',
-            coders: []
+            coders : []
         }
         this.handleClick= this.handleClick.bind(this)
     }
@@ -29,6 +29,7 @@ class JeemaCoder extends React.Component{
         })
 
         }
+
         render (){
             return (
                 <div className="py-4">
