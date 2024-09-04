@@ -8,6 +8,7 @@ class JeemaCoder extends React.Component{
       emailInput: '',
       telephoneInput: '',
       coders: [],
+      ModiferIndex : null
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -29,12 +30,20 @@ class JeemaCoder extends React.Component{
       telephoneInput: '',
     });
   }
+  handleEdit(index) {
+    const coder = this.state.coders[index]
+    this.setState({
+      prenomInput: coder.prenom,
+      nomInput: coder.nom,
+      emailInput: coder.email,
+      telephoneInput: coder.telephone,
+      })
+  }
 
   render() {
     return (
       <div className="py-4 bg-light">
         <p className="text-center">Jeemacoder gestion utilisateur</p>
-        <h1>{this.state.nomInput}</h1>
         <div className="container">
           <div style={{ maxWidth: 600, margin: 'auto' }}>
             <div className="row">
@@ -109,13 +118,19 @@ class JeemaCoder extends React.Component{
               </tr>
             </thead>
             <tbody>
-              {this.state.coders.map((coder) => {
+              {this.state.coders.map((coder, index) => {
                 return (
                   <tr>
                     <td>{coder.prenom}</td>
                     <td>{coder.nom}</td>
                     <td>{coder.email}</td>
                     <td>{coder.telephone}</td>
+                    <button className= " btn btn-warning" 
+                      onClick={ () => this.handleEdit(index )}
+                      >
+                      Modifier
+                      </button>
+
                   </tr>
                 );
               })}

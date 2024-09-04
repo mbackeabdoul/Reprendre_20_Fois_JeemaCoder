@@ -29,7 +29,7 @@ class JeemaCoder extends React.Component {
       telephoneInput: '',
     });
   }
-
+  
   handleEdit(index) {
     const coder = this.state.coders[index];
     this.setState({
@@ -37,7 +37,6 @@ class JeemaCoder extends React.Component {
       nomInput: coder.nom,
       emailInput: coder.email,
       telephoneInput: coder.telephone,
-      // modifCoder: index
     });
   }
   render() {
