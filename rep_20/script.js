@@ -29,7 +29,7 @@ class JeemaCoder extends React.Component {
     }
     render() {
       return (
-        <div className="py-4">
+        <div className="py-4"> 
           <p className="text-center">Jeemacoder gestion utilisateur</p>
           <h1>{this.state.nomInput}</h1>
           <div className="container">
@@ -124,4 +124,3 @@ class JeemaCoder extends React.Component {
   }
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(<JeemaCoder />);
-  
