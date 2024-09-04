@@ -7,6 +7,7 @@ class JeemaCoder extends React.Component {
       emailInput: '',
       telephoneInput: '',
       coders: [],
+      modifCoder: null,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -29,10 +30,19 @@ class JeemaCoder extends React.Component {
     });
   }
 
-  
+  handleEdit(index) {
+    const coder = this.state.coders[index];
+    this.setState({
+      prenomInput: coder.prenom,
+      nomInput: coder.nom,
+      emailInput: coder.email,
+      telephoneInput: coder.telephone,
+      // modifCoder: index
+    });
+  }
   render() {
     return (
-      <div className="py-4 bg-light">
+      <div className="py-4">
         <p className="text-center">Jeemacoder gestion utilisateur</p>
         <h1>{this.state.nomInput}</h1>
         <div className="container">
@@ -75,7 +85,8 @@ class JeemaCoder extends React.Component {
                   className="form-control"
                 />
               </div>
-            <div className="col-6 p-1">
+
+              <div className="col-6 p-1">
                 <label className="form-label">Telephone</label>
                 <input
                   type="text"
@@ -97,6 +108,7 @@ class JeemaCoder extends React.Component {
             </button>
           </div>
         </div>
+
         <div className="mt-5 container">
           <h3 className="text-center"> Coder</h3>
           <table class="table">
@@ -106,16 +118,25 @@ class JeemaCoder extends React.Component {
                 <th scope="col">Nom</th>
                 <th scope="col">Email</th>
                 <th scope="col">Telephone</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {this.state.coders.map((coder) => {
+              {this.state.coders.map((coder, index) => {
                 return (
                   <tr>
                     <td>{coder.prenom}</td>
                     <td>{coder.nom}</td>
                     <td>{coder.email}</td>
                     <td>{coder.telephone}</td>
+                    <td>
+                      <button
+                        className=" btn btn-warning"
+                        onClick={() => this.handleEdit(index)}
+                      >
+                        Modifier
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
