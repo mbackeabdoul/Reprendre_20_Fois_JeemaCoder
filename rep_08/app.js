@@ -6,7 +6,9 @@ class JeemaCoder extends React.Component{
             nomInput: '',
             emailInput: '',
             telephoneInput:'',
-            coders: []
+            coders: [],
+           ModiferIndex : null
+
         }
         this.handleClick= this.handleClick.bind(this)
     }
@@ -21,13 +23,22 @@ class JeemaCoder extends React.Component{
         this.setState({coders : [newCoder, ...this.state.coders]})
         this.setState({
             // vider
-
             prenomInput : '',
             nomInput: '',
             emailInput: '',
             telephoneInput:'',
         })
 
+        }
+
+        handleEdit(index) {
+          const coder = this.state.coders[index]
+          this.setState({
+            prenomInput: coder.prenom,
+            nomInput: coder.nom,
+            emailInput: coder.email,
+            telephoneInput: coder.telephone,
+            })
         }
         render (){
             return (
@@ -111,12 +122,13 @@ class JeemaCoder extends React.Component{
           </thead>
           <tbody>
             {
-              this.state.coders.map((coder) =>{
+              this.state.coders.map((coder, index) =>{
                 return <tr>
                 <td>{coder.prenom}</td>
                 <td>{coder.nom}</td>
                 <td>{coder.email}</td>
                 <td>{coder.telephone}</td>
+                <button className= " btn btn-warning" onClick={ () => this.handleEdit(index )}> Modifier</button>
               </tr>
               })
             }
