@@ -132,7 +132,7 @@ class JeemaCoder extends React.Component {
                       onClick={ () => this.handleEdit(index )}
                       >
                       Modifier
-                      </button>
+                    </button>
         </tr>
         })
       }
